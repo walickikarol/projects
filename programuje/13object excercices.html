@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //tworzymy obiekt person
+        //właściwości: imię, nazwisko, wiek, miasto, kod pocztowy, kraj
+        // + metoda: getName powinna zwrócić imię i nazisko
+        let person = {
+            name: 'Karol',
+            surname: 'Walicki',
+            age: 34,
+            address : {
+                city: 'Rzeszów',
+                postalCode: '35-036',
+                country: 'Poland'
+            },
+            getName: function () {
+                console.log('nazwa to: ', this.name + ' ' + this.surname)
+                return this.address.postalCode
+            }
+
+        }
+        person.getName()
+        console.log(person.getName())
+
+        function getNewPerson(name,surname,age) {
+            return {
+                name : name,
+                surname : surname,
+                age : age
+            }
+        }
+        const user = getNewPerson('Ania','Kowalska',29)
+        console.log(user)
+        const user2 = getNewPerson('Karol','Walicki',35)
+        console.log(user2)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = 10
+        let info = data
+        console.log(info)
+        data = 33
+        console.log(data, info)
+
+        let obj ={
+            a: 10
+    
+        }
+        let test=obj
+        console.log(obj.a)
+        console.log(test.a)
+        obj.a = 20
+        console.log(obj.a)
+        console.log(test.a)
+        //typy proste są przekazywane przez wartość czyli są to ich kopie
+        function something(a,b) {
+            a=80
+            return a+b
+        }
+        let someA = 23
+        let someB = 40
+        console.log(something(someA,someB))
+        console.log(someA,someB)
+    </script>
+</body>
+</html>

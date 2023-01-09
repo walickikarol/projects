@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    64e6
+    <script>
+        function add(a,b) {
+            let c = a+b
+            console.log('wynik:',c)
+        }
+        add(8,3)
+        add(20,15)
+        add(100,105)
+
+        let x=6
+        let y=45
+        if (x>5) {
+            add(x,y)
+        } else console.log('co jest')
+        //definicja funkcji
+        function multiply(a,b) {
+            return a*b
+        }
+        let result = multiply(15,4)
+        console.log('resultL',result)
+        //wyrazenie funkcyjne - function expression
+        let division = function(a,b) {
+            return a/b         
+        }
+        let divisionResult = division(100,3)
+        console.log('wynik dzielenia:', divisionResult)
+
+        let gowno = function(a,b) {
+            return a-b
+        }
+        let roznica = gowno(2,3)
+        console.log('roznica:', roznica)
+
+        function division2(a,b) {
+            return a/b
+        }
+        let divisionResult2 = division2 (200,3)
+        console.log('wynik dzielenia:', divisionResult2)
+        //zmienne lokalne i globalne
+        let data=55 //zmienna globalna dostepna w całym programie js
+        let text='javascript'
+        function test() {
+            let text = 'hello' //zmienna lokalna widoczna wylacznie wewnatrz fukncji
+            console.log('wartosc data:',data)    
+            console.log('wartosc text:',text)       
+        }
+        test()
+        console.log(text)
+
+    </script>
+</body>
+</html>
