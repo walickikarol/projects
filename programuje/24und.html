@@ -7,12 +7,43 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="div1">coś tam</div>
     <script>
-
-        let a
-        console.log(typeof(a))
-        b
+        let a  //zmienna jest zadeklarowana
+        console.log(a)
+        if (a==undefined) console.log('Brak wartosci')
+        //b     Uncaught ReferenceError: b is not defined
+        
         console.log(typeof(b))
+
+        let data =  10
+        console.log(data)
+        data=null
+        console.log(data)
+        console.log(typeof(data))
+
+        if(null==undefined) console.log('trueasdf')
+        if(null===undefined) console.log('false nie wykona si')
+        console.log(null)
+        console.log(undefined)
+        console.log(typeof(null))
+        console.log(typeof(undefined))
+
+        //null
+        let test = 5
+        console.log(test)
+        test=null
+        console.log(test)
+        console.log(typeof(test))
+
+        //null i undefined to falsy values -falszywe wartosc
+        //porównanie proste i ścisłe
+        //==
+        //===
+
+        
+        
+       
 </script>
 </body>
 </html>
