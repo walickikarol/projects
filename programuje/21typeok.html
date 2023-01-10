@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data=15
+        let info=typeof data
+        console.log(info)
+
+        if (info=="number") {
+            console.log("data zawiera liczbę")
+        }
+        data = "tekstowo"
+        info=typeof data
+        console.log(info)
+
+        if (typeof data=="number") {
+            console.log("data ma liczbę")
+        } else if (typeof data=="string"){
+            console.log("data ma string")
+        }
+
+        console.log(typeof 20)
+        console.log(typeof "tekst")
+        console.log(typeof "40")
+        console.log(typeof true)
+        console.log(typeof false) 
+        console.log(typeof {})
+        console.log(typeof {a:5})
+        console.log(typeof undefined)
+        console.log(typeof null)
+        console.log(typeof function(){})
+        console.log(typeof [])
+        console.log(typeof [1,2,3])
+        console.log(typeof Symbol())
+        console.log(typeof 1n)
+
+    </script>
+</body>
+</html>
