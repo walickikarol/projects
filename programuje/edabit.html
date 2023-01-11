@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // /Convert Hours into Seconds
+        /*Write a function that converts hours into seconds.
+
+Examples
+howManySeconds(2) ➞ 7200
+
+howManySeconds(10) ➞ 36000
+
+howManySeconds(24) ➞ 86400
+Notes
+60 seconds in a minute, 60 minutes in an hour
+Don't forget to return your answer.
+function howManySeconds(hours) {
+	return hours*60*60
+}
+*/
+howManySeconds = hours => hours*3600
+console.log(howManySeconds(24))
+
+/*
+Buggy Code (Part 1)
+Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+
+Examples
+cubes(3) ➞ 27
+
+cubes(5) ➞ 125
+
+cubes(10) ➞ 1000
+Notes
+READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+Don't overthink this challenge; it's not supposed to be hard.
+function cubes(a) {
+	return a ** 3
+}
+
+*/
+cubes = a => a**3
+console.log(cubes(10))
+/*Maximum Edge of a Triangle
+Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
+
+Examples
+nextEdge(8, 10) ➞ 17
+
+nextEdge(5, 7) ➞ 11
+
+nextEdge(9, 2) ➞ 10
+Notes
+(side1 + side2) - 1 = maximum range of third edge.
+The side lengths of the triangle are positive integers.
+Don't forget to return the result.
+function nextEdge(side1, side2) {
+	return side1 +side2 -1
+}*/
+nextEdge = (side1,side2)=> side1+side2-1
+console.log(nextEdge(8,10))
+
+
+    </script>
+</body>
+</html>
