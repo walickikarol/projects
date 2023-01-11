@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <span id="time"></span>
+        <p></p>
+        <span id="time2"></span>
+    </div>
+
+    <script>
+    let date = new Date()
+    console.log(date)    
+    console.log(date.getTime())    
+    console.log(date.toLocaleTimeString())  
+    
+    function currentTime() {
+        let date = new Date()
+        //console.log(date)
+        document.getElementById("time").innerHTML=date.toLocaleTimeString()
+
+    }
+    setInterval(currentTime,1000)
+    const currentTime2 = new Date().getTime();
+
+const milliseconds = currentTime2/1000;
+console.log(milliseconds);
+let z= 10
+console.log(z)
+z+=5
+console.log(z)
+z-=3
+console.log(z)
+z*=2
+console.log(z)
+z/=3
+console.log(z)
+z%=5
+console.log(z)
+z**=3
+console.log(z)
+z&=3
+console.log(z)
+
+let result = 'Witaj  '+'   świecie!          ASDASD'
+console.log(result)
+let sentence = result.replace(/\s+/g, ' ').trim()
+sentence +='DOM '
+console.log(sentence)
+let text = sentence
+console.log(text)
+text +='DOM '
+console.log(text)
+
+let age=19
+console.log(age)
+
+data=(age>=19) ? 'dorosly':'nieletni'
+console.log(data)
+
+for (let i = 0,j=5; i < 30; i++, j--) {
+    console.log("i: ", i, 'j: ', j)
+    
+}
+console.log(i)
+
+
+
+
+    </script>
+</body>
+</html>
