@@ -30,6 +30,21 @@
 					Ile wyrazów złotego ciągu? -> <input type="number" id="ile" value="20">
 				</label>
 			</div>
+
+			<div class="interfejs">
+				Odd ->
+				<input type="button" name="np" value="red">
+				<input type="button" name="np" value="green">
+				<input type="button" name="np" value="magenta">
+
+				Even ->
+				<input type="button" class="parzyste" value="red">
+				<input type="button" class="parzyste" value="green">
+				<input type="button" class="parzyste" value="magenta">
+
+			</div>
+
+
 			<div>
 				<input type="button" id="generuj_ciag" value="Generuj ciąg">
 			</div>
@@ -41,6 +56,23 @@
 	</main>
 	<script>
 	document.getElementById('generuj_ciag').addEventListener('click',generuj)
+	//przyciski "Odd" zyskują obsługę kliknięcia
+	let nieparzyste=document.getElementsByName('np')
+	for (let i = 0; i < 3; i++) {
+		nieparzyste[i].addEventListener('click',color_odd)
+		
+	}
+	//przyciski "Even" zyskują obsługę kliknięcia
+	let parzyste = document.querySelectorAll('.parzyste')
+	parzyste.forEach(przycisk => {
+		let kolor = przycisk.value
+		przycisk.addEventListener('click',function(){
+			color_even(kolor)
+		})
+
+	})
+
+
 	function generuj() {
 		let ile=document.getElementById('ile').value
 		let a=document.querySelector('#a').value
@@ -88,12 +120,26 @@
 			//alert(document.querySelector('#ciag').outerHTML)
 			//alert(document.querySelector('#ciag').innerText)
 			//alert(document.querySelector('#ciag').textContent)
-
+			//test
 		}
 
 
 	}
-		
+	function color_odd() {
+		let kolor = this.value
+		//alert(kolor)
+		let wyrazy_nieparzyste = document.getElementsByClassName('odd')
+		for(let wyraz of wyrazy_nieparzyste) {
+			wyraz.style.color=kolor
+		}
+	}
+
+	function color_even(kol) {
+		let wyrazy_parzyste = document.querySelectorAll('.even')
+		for(let wyraz of wyrazy_parzyste) {
+			wyraz.style.cssText = 'color:'+kol+';'
+		}
+	}
 		
 	</script>
 
