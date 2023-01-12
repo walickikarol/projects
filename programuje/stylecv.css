@@ -1,11 +1,12 @@
 body{
     font-family: Arial;
-    background-color: rgb(135, 140, 144);
-    color: rgb(255, 255, 255);
+    background-color: rgb(79, 79, 79);
+    color: black;
     padding: 40px 0;
 }
 h1{
     font-size: 36px;
+    margin-bottom: 10px;
 }
 h2{
     font-size: 28px;
@@ -14,23 +15,30 @@ h3{
     margin-top: 5px;
 }
 span{
-    color:rgb(171, 171, 231);
+    color:rgb(75, 30, 0);
+}
+.container{
+    box-shadow: 0 0 10px black;
+    width: 960px;
+    margin: 0 auto;
+    background-color: rgb(168, 168, 168);
 }
 section,header{
     padding: 10px 60px 20px 60px;
-    background-color: rgb(74, 74, 74);
-    width: 960px;
-    margin: 0 auto;
+    
+    
+    
 }
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 60px;
 }
 header ul{
     list-style: none;
 }
-header li{
+li{
     margin-bottom: 15px;
 }
 .address-icon {
@@ -65,9 +73,34 @@ header li{
     margin-left: 20px;
 }
 .hobbies p{
-    color: grey;
+    color: rgb(56, 56, 56);
     line-height: 1.5;
 }
 p{
     line-height: 1.5;
+}
+.cd-download-link{
+    border: 2px solid cornflowerblue;
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 26px;
+    transition: background-color .5s, color .5s;
+    box-shadow: 0 0 10px black;
+}
+
+.cd-download-link:hover{
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.cd-download-link:focus{
+    outline: none;
+    color: white;
+    background-color: cornflowerblue;
+}
+.cd-download-link:active{
+    text-decoration: underline;
 }
