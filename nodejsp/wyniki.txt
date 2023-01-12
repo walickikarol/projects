@@ -1,0 +1,1 @@
+Wynik dodawania: 8, natomiast wynik odejmowania to: 2
