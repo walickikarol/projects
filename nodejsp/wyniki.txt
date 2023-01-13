@@ -1,1 +1,1 @@
-Wynik dodawania: 8, natomiast wynik odejmowania to: 2
+Wynik dodawania: 13, natomiast wynik odejmowania to: 7

@@ -3,8 +3,8 @@ const fs = require('fs')
 
 console.log(stuff.add(5,3))
 console.log(stuff.sub(5,3))
-let sum = stuff.add(5,3)
-let diff = stuff.sub(5,3)
+let sum = stuff.add(10,3)
+let diff = stuff.sub(10,3)
 
 console.log(sum)
 console.log(diff)
