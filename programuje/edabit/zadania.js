@@ -802,3 +802,366 @@ function format(a, b, c) {
  [2, 3, 5, 7, 11].forEach(n => global['add' + n] = (v) => n + v);
 // [2, 3, 5, 7, 11].forEach(n => this[`add${n}`] = x => x + n);
 // [2, 3, 5, 7, 11].map(n => eval(`add${n} = x => x + n`));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Using Ternary Operators
+// The ternary operator (sometimes called Conditional Expressions) in JavaScript is an alternative to the if... else... statement.
+// It is written in the format:
+// condition ? result_if_true : result_if_false
+// Ternary operators are often more compact than multi-line if statements, and are useful for simple conditional tests.
+// Write a function that uses the ternary operator to return "yeah" if bool is true, and "nope" otherwise.
+// Examples
+// yeah_nope(true) ➞ "yeah"
+// yeah_nope(false) ➞ "nope"
+function yeah_nope(bool) {
+	return bool? 'yeah':'nope'
+}
+console.log(yeah_nope(false))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Minimal IV: if-else if-else Inferno
+// For example, the code:
+// function compare_to_100 (x) {
+//   if (x > 100) {
+//       return "greater"
+//   } else if (x < 100) {
+//         return "smaller"
+//     } else {
+//       return "equal"
+//     }
+// }
+// Can be simplified to:
+// function compare_to_100 (x) {
+//     if (x > 100) return "greater"
+//     if (x < 100) return "smaller"
+//     return "equal"
+// }
+
+// function equilbrium (x) {
+// 	if (x > 0) {
+// 		return "positive"
+// 	} else if (x < 0) {
+// 		return "negative"
+// 	} else {
+// 		return true
+// 	}
+// }
+let equilbrium=x=>{
+	if(x>0) return 'positive'
+	if(x<0) return 'negative'
+	return true
+}
+console.log(equilbrium(-10))
+//const equilibrium = x => x > 0 ? 'positive' : x < 0 ? 'negative' : true;
+//const equilibrium = x => !x || `${x > 0 ? "posi" : "nega"}tive`;
+const equilibrium2 = x => ['negative',true,'positive'][Math.sign(x) + 1];
+console.log(equilibrium2(10))
+
+function dwietablice() {
+	return ['karol','coToJest','tablica'][1]	
+}
+
+console.log(dwietablice())
+
+////////////////////////////////////////////////////////////////////////////////////
+// Is the String Odd or Even?
+// Given a string, return true if its length is even or false if the length is odd.
+// Examples
+// oddOrEven("apples") ➞ true
+// // The word "apples" has 6 characters.
+// // 6 is an even number, so the program outputs true.
+// oddOrEven("pears") ➞ false
+// // "pears" has 5 letters, and 5 is odd.
+// // Therefore the program outputs false.
+// oddOrEven("cherry") ➞ true
+// function oddOrEven(s) {
+// 	return s.length%2==0? true:false
+// }
+let oddOrEven=s=>s.length%2==0 ? true:false
+console.log(oddOrEven(""))
+
+////////////////////////////////////////////////////////////////////////////////////
+// ES6: Destructuring Arrays I
+// You can assign variables from arrays like this:
+
+// const arr = [1, 2, 3, 4, 5, 6]
+// let a = arr[0]
+// let b = arr[1]
+
+// console.log(a) // outputs 1
+// console.log(b) // outputs 2
+// With ES6, you can assign variables from arrays in a much more succinct way. Create variables a and b from 
+// the given array using the ES6 destructuring assignment syntax, where a === 1 and b === 2.
+
+const arr = ['asdf', 'zxcv', 3, 4, 5, 6]
+const [ab,bc,xx,...bbv] = arr;
+
+console.log(ab,bc)
+console.log(...bbv)
+
+////////////////////////////////////////////////////////////////////////////////////
+// Inches to Feet
+// Create a function that accepts a measurement value in inches and returns the equivalent of the measurement value in feet.
+// Examples
+// inchesToFeet(324) ➞ 27
+// inchesToFeet(12) ➞ 1
+// inchesToFeet(36) ➞ 3
+// Notes
+// If inches are under 12, return 0.
+// 12 inches = 1 foot.
+function inchesToFeet(inches) {
+return inches<12?0: parseInt(inches/12)	
+}
+
+console.log(inchesToFeet(325))
+//let inchesToFeet = i => ~~(i/12)
+//return Math.floor(inches/12);
+
+////////////////////////////////////////////////////////////////////////////////////
+// I'd Like a New Shade of Blue, Please
+// I have a bucket containing an amount of navy blue paint and I'd like to paint as many walls as possible. 
+// Create a function that returns the number of complete walls that I can paint, before I need to head to the shops to buy more.
+// n is the number of square meters I can paint.
+// w and h are the widths and heights of a single wall in meters.
+// Examples
+// howManyWalls(100, 4, 5) ➞ 5
+// howManyWalls(10, 15, 12) ➞ 0
+// howManyWalls(41, 3, 6) ➞ 2
+// Notes
+// Don't count a wall if I don't manage to finish painting all of it before I run out of paint.
+// All walls will have the same dimensions.
+// All numbers will be positive integers.
+function howManyWalls(n, w, h) {
+	return Math.floor(n/(w*h))
+}
+console.log(howManyWalls(41, 3, 6))
+//return ~~(n/(w*h))
+//return Number(Math.floor(n/(w*h)).toFixed(0))
+
+////////////////////////////////////////////////////////////////////////////////////
+// To the Power of _____
+// Create a function that takes a base number and an exponent number and returns the calculation.
+// Examples
+// calculateExponent(5, 5) ➞ 3125
+// calculateExponent(10, 10) ➞ 10000000000
+// calculateExponent(3, 3) ➞ 27
+function calculateExponent(num, exp) {
+	return num**exp
+}
+console.log(calculateExponent(3, 3))
+//return Math.pow(num, exp)
+
+////////////////////////////////////////////////////////////////////////////////////
+// Return the Last Element in an Array
+// Create a function that accepts an array and returns the last item in the array.
+// Examples
+// getLastItem([1, 2, 3]) ➞ 3
+// getLastItem(["cat", "dog", "duck"]) ➞ "duck"
+// getLastItem([true, false, true]) ➞ true
+function getLastItem(arr) {
+	return arr[arr.length-1]
+}
+console.log(getLastItem([true, false, true]))
+//return arr.pop();
+//a.slice(-1)[0];
+
+////////////////////////////////////////////////////////////////////////////////////
+// String and Number Conversions
+// You need to create two functions to substitute toString() and parseInt(); A function called intToString() that converts integers into strings and a function called stringToInt() that converts strings into integers.
+// Examples:
+// intToString(4) ➞ "4"
+// stringToInt("4") ➞ 4
+// intToString(29348) ➞ "29348"
+function intToString(num) {
+	return num+''
+}
+
+
+function stringToInt(num) {
+	return num*1
+}
+console.log(typeof intToString(4))
+console.log(typeof stringToInt("4"))
+//const stringToInt = n => +n;
+//return +num;
+//return String(num);
+//return Number(num);
+//return num.toFixed()
+//return `${num}`
+
+////////////////////////////////////////////////////////////////////////////////////
+// On/Off Switches
+// Create a function that returns how many possible arrangements can come from a certain number of switches (on / off). 
+//In other words, for a given number of switches, how many different patterns of on and off can we have?
+// Examples
+// posCom(1) ➞ 2
+// posCom(3) ➞ 8
+// posCom(10) ➞ 1024
+function posCom(num) {
+	return 2**num
+}
+console.log(posCom(10))
+//return 2 << (num - 1); Left shift (<<)
+////////////////////////////////////////////////////////////////////////////////////
+// Among Us Imposter Formula
+// Create a function that calculates the chance of being an imposter. The formula for the chances of being 
+// an imposter is 100 × (i / p) where i is the imposter count and p is the player count. Make sure to round the value to the nearest 
+// integer and return the value as a percentage.
+// Examples
+// imposterFormula(1, 10) ➞ "10%"
+// imposterFormula(2, 5) ➞ "40%"
+// imposterFormula(1, 8) ➞ "13%"
+// Notes
+// The player limit is 10 and the imposter count can only go up to 3.
+function imposterFormula(i, p) {
+	return `${Math.round(100 * (i / p))}%`
+}
+console.log(imposterFormula(1, 8))
+////////////////////////////////////////////////////////////////////////////////////
+// Find Out the Leap Year
+// A leap year happens every four years, so it's a year that is perfectly divisible by four. However, if the year is a multiple 
+// of 100 (1800, 1900, etc), the year must be divisible by 400.
+// Write a function that determines if the year is a leap year or not.
+// Examples
+// leapYear(2020) ➞ true
+// leapYear(2021) ➞ false
+// leapYear(1968) ➞ true
+function leapYear(year) {
+	return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0
+}
+//const leapYear = y => new Date(y, 1, 29).getDate() === 29;
+//((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Circle or Square
+// Given the radius of a circle and the area of a square, return true if the circumference of the circle is greater than the square's 
+// perimeter and false if the square's perimeter is greater than the circumference of the circle.
+// Examples
+// circle_or_square(16, 625) ➞ True
+// circle_or_square(5, 100) ➞ False
+// circle_or_square(8, 144) ➞ True
+// Notes
+// You can use Pi to 2 decimal places (3.14).
+// Circumference of a circle equals 2 * Pi * radius.
+// To find the perimeter of a square using its area, find the square root of area (to get side length) and multiply that by 4.
+function circle_or_square(rad, area){
+let k=2*Math.PI*rad
+let kwadrat=Math.sqrt(area)*4
+return k>kwadrat?true:false
+}
+console.log(circle_or_square(8,144))
+//const circle_or_square = (rad, area) => 2*3.14*rad > area**0.5*4;
+////////////////////////////////////////////////////////////////////////////////////
+// Many Operators!
+// Some basic arithmetic operators are +, -, *, /, and %. In this challenge you will be given three parameters, num1, num2, and an operator.
+// Use the operator on number 1 and 2.
+// Examples
+// operate(1, 2, "+") ➞ 3
+// // 1 + 2 = 3
+// operate(7, 10, "-") ➞ -3
+// // 7 - 10 = -3
+// operate(20, 10, "%") ➞ 0
+// // 20 % 10 = 0
+function operate(num1, num2, operator) {
+	switch (operator) {
+		case '+': 
+			return num1+num2
+			break;
+		case '-': 
+			return num1-num2
+			break;
+		case '*': 
+			return num1*num2
+			break;
+		case '/': 
+			return num1/num2
+			break;
+		case '%': 
+			return num1%num2
+			break;
+	
+		default: "spadaj"
+			break;
+	}
+}console.log(operate(20, 10, "%"))
+//return eval(num1 + operator + num2);
+
+////////////////////////////////////////////////////////////////////////////////////
+// Moving House
+// I'd like to calculate how long on average I've lived in a single house.
+// Given a person's age and the number of times they've moved house as moves, return the average number 
+// of years that they've spent living in the same house.
+// Examples
+// yearsInOneHouse(30, 1) ➞ 15
+// yearsInOneHouse(15, 2) ➞ 5
+// yearsInOneHouse(80, 0) ➞ 80
+// Notes
+// You can assume that the tests include people who've always lived in a house.
+// Round to the nearest year.
+function yearsInOneHouse(age, moves) {
+	return Math.round(age/(moves+1))
+}
+console.log(yearsInOneHouse(80, 0))
+////////////////////////////////////////////////////////////////////////////////////
+// Leap Year Function ⌚
+// Write a function that returns true if a year is a leap, otherwise return false.
+// function leapYear(year) {
+// 	return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0
+// }
+
+////////////////////////////////////////////////////////////////////////////////////
+// Word without First Character
+// Create a function that takes a word and returns the new word without including the first character.
+// Examples
+// newWord("apple") ➞ "pple"
+// newWord("cherry") ➞ "herry"
+// newWord("plum") ➞ "lum"
+// Notes
+// The input is always a valid word.
+function newWord(str) {
+	return str.slice(1);
+}
+
+console.log(newWord("apple"))
+//return str.substring(1);
+
+////////////////////////////////////////////////////////////////////////////////////
+// Flip the Boolean
+// Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. 
+// For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
+// Create a function that returns the opposite of the given boolean, as a number.
+// Examples
+// flipBool(true) ➞ 0
+// flipBool(false) ➞ 1
+// flipBool(1) ➞ 0
+// flipBool(0) ➞ 1
+function flipBool(b) {
+	return b==true?0:1
+}
+console.log(flipBool(0))
+// const flipBool=b=> b ? 0 : 1;
+// return (!b)*1;
+// flipBool=b=>1-b
+
+////////////////////////////////////////////////////////////////////////////////////
+// Name Greeting!
+// Create a function that takes a name and returns a greeting in the form of a string. Don't use a normal function, use an arrow function.
+// Examples
+// helloName("Gerald") ➞ "Hello Gerald!"
+// helloName("Tiffany") ➞ "Hello Tiffany!"
+// helloName("Ed") ➞ "Hello Ed!"
+const helloName = name => `Hello ${name}!`
+console.log(helloName("Gerald"))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Is the Number Even or Odd?
+// Create a function that takes a number as an argument and returns "even" for even numbers and "odd" for odd numbers.
+// Examples
+// isEvenOrOdd(3) ➞ "odd"
+// isEvenOrOdd(146) ➞ "even"
+// isEvenOrOdd(19) ➞ "odd"
+function isEvenOrOdd(num) {
+	return !(num%2)?'even':'odd'
+}
+console.log(isEvenOrOdd(146))
+//isEven = n => !(n % 2)
