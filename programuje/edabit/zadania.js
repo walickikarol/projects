@@ -22,33 +22,6 @@ function printArray(number) {
   const printArray2 = n => Array.from({length: n}, (_, i) => i + 1)
   console.log(printArray2(arg))
 
-  ////////////////////////////////////////////////////////////////////////////////////
-//   Return Types
-// Create a function that takes an array and returns the types of values (data types) in a new array.
-// Examples
-// arrayValuesTypes([1, 2, "null", []])
-// ➞ ["number", "number", "string", "object"]
-// arrayValuesTypes(["214", true, false, 2, 2.15, [], null])
-// ➞ ["string", "boolean", "boolean", "number", "number", "object", "object"]
-// arrayValuesTypes([21.1, "float", "array", ["I am array"], null, true, 214])
-// ➞ ["number", "string", "string", "object", "object", "boolean", "number"]
-// Notes
-// Check the Resources tab for help if needed.
-// Remember Arrays & Null in JS are treated as object, hence the examples
-function arrayValuesTypes(arr) {
-	let newArray = [];
-	for(let i = 0; i<arr.length; i++){
-		newArray.push(typeof arr[i]);
-	}
-	return newArray;
-}
-console.log(arrayValuesTypes(["214", true, false, 2, 2.15, [], null]))
-
-let arrayValuesTypes2 = a => a.map(b => typeof b);
-console.log(arrayValuesTypes2(["214", true, false, 2, 2.15, [], null]))
-
-let arrayValuesTypes3 = a => a.map(b =>b+1);
-console.log(arrayValuesTypes3(["214", true, false, 2, 2.15, [], null]))
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Find the Index
@@ -1165,3 +1138,273 @@ function isEvenOrOdd(num) {
 }
 console.log(isEvenOrOdd(146))
 //isEven = n => !(n % 2)
+
+////////////////////////////////////////////////////////////////////////////////////
+//   Return Types
+// Create a function that takes an array and returns the types of values (data types) in a new array.
+// Examples
+// arrayValuesTypes([1, 2, "null", []])
+// ➞ ["number", "number", "string", "object"]
+// arrayValuesTypes(["214", true, false, 2, 2.15, [], null])
+// ➞ ["string", "boolean", "boolean", "number", "number", "object", "object"]
+// arrayValuesTypes([21.1, "float", "array", ["I am array"], null, true, 214])
+// ➞ ["number", "string", "string", "object", "object", "boolean", "number"]
+// Notes
+// Check the Resources tab for help if needed.
+// Remember Arrays & Null in JS are treated as object, hence the examples
+function arrayValuesTypes(arr) {
+	let newArray = [];
+	for(let i = 0; i<arr.length; i++){
+		newArray.push(typeof arr[i]);
+	}
+	return newArray;
+}
+console.log(arrayValuesTypes(["214", true, false, 2, 2.15, [], null]))
+
+let arrayValuesTypes2 = a => a.map(b => typeof b);
+console.log(arrayValuesTypes2(["214", true, false, 2, 2.15, [], null]))
+
+function arrayValuesTypes4(a) {
+	//return a.map((x) => typeof x);
+	return a.map(function (x) {
+		return x*2
+	})
+}
+console.log(arrayValuesTypes4(["214", true, false, 2, 2.15, [], null]),'asdf')
+
+function asd(x) {
+	return typeof x
+}
+console.log(asd([1,2,3]),'zzz')
+let arrayValuesTypes3 = a => a.map(b =>b+1);
+console.log(arrayValuesTypes3(["214", true, false, 2, 2.15, [], null]))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Fix the Error: Check Whether a Given Number Is Odd
+// Éowyn has written the function isOdd() to check if a given number is odd or not. Unfortunately, the function does not return 
+// the correct result for all the inputs. Help her fix the error.
+// function isOdd(num){
+//   ret n % 19 += 123;
+// }
+// Examples
+// isOdd(-5) ➞ true
+// isOdd(25) ➞ true
+// isOdd(0) ➞ false
+function isOdd(num) {
+	return num % 2!=0
+}
+console.log(isOdd(5))
+//return Math.abs(num % 2) == 1;
+////////////////////////////////////////////////////////////////////////////////////
+// Stack the Boxes
+// Here's an image of four models. Some of the cubes are hidden behind other cubes. Model one consists of one cube. 
+// Model two consists of four cubes, and so on...
+// Stack the Boxes
+// Write a function that takes a number n and returns the number of stacked boxes in a model n levels high, visible and invisible.
+// Examples
+// stackBoxes(1) ➞ 1
+// stackBoxes(2) ➞ 4
+// stackBoxes(0) ➞ 0
+// 1,4,9,16,25,36
+// 3,5,7,9,11
+function stackBoxes(n) {
+	return n*n
+}
+console.log(stackBoxes(0))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Triangle and Parallelogram Area Finder
+// Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates 
+// the area of that shape.
+// Examples
+// areaShape(2, 3, "triangle") ➞ 3
+// areaShape(8, 6, "parallelogram") ➞ 48
+// areaShape(2.9, 1.3, "parallelogram") ➞ 3.77
+// Notes
+// Area of a triangle is 0.5 * b * h
+// Area of a parallelogram is b * h
+// Assume triangle and parallelogram are the only inputs for shape.
+
+function areaShape(base, height, shape) {
+	return shape=='triangle'? 0.5*base*height : shape=='parallelogram'? base*height:'zły kształt'
+}
+console.log(areaShape(2.9, 1.3, "parallelogram"))
+//return (shape === 'triangle' ? 0.5 : 1) * base * height;
+
+////////////////////////////////////////////////////////////////////////////////////
+// Convert an Array to a String
+// Create a function that takes an array of numbers or letters and returns a string.
+// Examples
+// arrayToString([1, 2, 3, 4, 5, 6]) ➞ "123456"
+// arrayToString(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
+// arrayToString([1, 2, 3, "a", "s", "dAAAA"]) ➞ "123asdAAAA"
+function arrayToString(arr) {
+// return toString(arr)	
+let text=''
+for (let i = 0; i < arr.length; i++) {
+	text=text+arr[i]
+} return text
+}
+console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"]))
+let arrayToString2=arr=>arr.join('')
+console.log(arrayToString2([1, 2, 3, "a", "s", "dAAAA"]))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Concatenating Two Integer Arrays
+// Create a function to concatenate two integer arrays.
+// Examples
+// concat([1, 3, 5], [2, 6, 8]) ➞ [1, 3, 5, 2, 6, 8]
+// concat([7, 8], [10, 9, 1, 1, 2]) ➞ [7, 8, 10, 9, 1, 1, 2]
+// concat([4, 5, 1], [3, 3, 3, 3, 3]) ➞ [4, 5, 1, 3, 3, 3, 3, 3]
+function concat(arr1, arr2) {
+// return [...arr1, ...arr2]	
+// return arr1.concat(arr2)
+return [].concat(arr1,arr2)
+// return arr1.push(...arr2)
+}
+console.log(concat([1, 3, 5], [2, 6, 8]))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Find the Index
+// Create a function that takes an array and a string as arguments and returns the index of the string.
+// Examples
+// findIndex(["hi", "edabit", "fgh", "abc"], "fgh") ➞ 2
+// findIndex(["Red", "blue", "Blue", "Green"], "blue") ➞ 1
+// findIndex(["a", "g", "y", "d"], "d") ➞ 3
+// findIndex(["Pineapple", "Orange", "Grape", "Apple"], "Pineapple") ➞ 0
+function findIndex2(arr, str) {
+	// return arr.indexOf(str)
+	return arr.findIndex(x=>x==str)
+}
+console.log(findIndex2(["hi", "edabit", "fgh", "abc"], "fgh"))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Array Indexing
+// Given an index and an array, return the value of the array with the given index.
+// Examples
+// valueAt([1, 2, 3, 4, 5, 6], 10 / 2) ➞ 6
+// valueAt([1, 2, 3, 4, 5, 6], 8.0 / 2) ➞ 5
+// valueAt([1, 2, 3, 4], 6.535355314 / 2) ➞ 4
+function valueAt(arr, i) {
+	// return arr[Math.floor(i)]
+	// return arr[~~i]
+	return arr[i = i - i%1]
+}
+console.log(valueAt([1, 2, 3, 4], 6.535355314 / 2))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Front 3 - Slice Check Repeat Concatenate
+// Create a function that takes a string; we'll say that the front is the first three characters of the string. 
+// If the string length is less than three characters, the front is whatever is there. Return a new string, which is three copies of the front.
+// Examples
+// frontThree("Python") ➞ "PytPytPyt"
+// frontThree("Cucumber") ➞ "CucCucCuc"
+// frontThree("bioshock") ➞ "biobiobio"
+function frontThree(str) {
+	// return str.slice(0,3)+str.slice(0,3)+str.slice(0,3)
+	// return str.slice(0,3).repeat(3)
+	return str.substring(0,3).repeat(3)
+}
+console.log(frontThree("Py"))
+
+
+	
+////////////////////////////////////////////////////////////////////////////////////
+// Buggy Code (Part 3)
+let sumx=0
+function sumArray(arr) { 
+for (i=0; i<arr.length; i++) {
+	  sumx+=arr[i]
+	}
+  return sumx
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// Find the Index (Part #2)
+// Create a function that searches for the index of a given item in an array. If the item is present, it should return the index, 
+// otherwise, it should return -1.
+// Examples
+// search([1, 2, 3, 4], 3) ➞ 2
+// search([2, 4, 6, 8, 10], 8) ➞ 3
+// search([1, 3, 5, 7, 9], 11) ➞ -1
+function searchx(arr, item) {
+	return arr.indexOf(item)
+}
+console.log(searchx([1, 3, 5, 7, 9], 11))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Convert All Array Items to String
+// Create a function that takes an array of integers and strings. Convert integers to strings and return the new array.
+// Examples
+// parseArray([1, 2, "a", "b"]) ➞ ["1", "2", "a", "b"]
+// parseArray(["abc", 123, "def", 456]) ➞ ["abc", "123", "def", "456"]
+// parseArray([1, 2, 3, 17, 24, 3, "a", "123b"]) ➞ ["1", "2", "3", "17", "24", "3", "a", "123b"]
+// parseArray([]) ➞ []
+// Notes
+// Return [] if array is empty.
+function parseArray(arr) {
+	// return arr.map(b=>b.toString())
+	return arr.map(String)
+}
+console.log(parseArray([1, 2, 3, 17, 24, 3, "a", "123b"]))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Check if an Array Contains a Given Number
+// Write a function to check if an array contains a particular number.
+// Examples
+// check([1, 2, 3, 4, 5], 3) ➞ true
+// check([1, 1, 2, 1, 1], 3) ➞ false
+// check([5, 5, 5, 6], 5) ➞ true
+// check([], 5) ➞ false
+function check(arr, el) {
+	return arr.indexOf(el)>=0
+	// return arr.includes(el)
+}
+console.log(check([1, 2, 3, 4, 5], 3))
+console.log(check([1, 1, 2, 1, 1], 3))
+console.log(check([5, 5, 5, 6], 5))
+console.log(check([], 5))
+
+////////////////////////////////////////////////////////////////////////////////////
+// 50-30-20 Strategy
+// The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, 
+// and 20% after-tax income on savings or paying off debt.
+// Given the after-tax income as ati, what you are supposed to do is to make a function that will return an object that shows how much
+//  a person needs to spend on needs, wants, and savings.
+// Examples
+// fiftyThirtyTwenty(10000) ➞ { "Needs": 5000, "Wants": 3000, "Savings": 2000 }
+// fiftyThirtyTwenty(50000) ➞ { "Needs": 25000, "Wants": 15000, "Savings": 10000 }
+// fiftyThirtyTwenty(13450) ➞ { "Needs": 6725, "Wants": 4035, "Savings": 2690 }
+let obj ={}
+function fiftyThirtyTwenty(ati) {
+	return obj={ "Needs": ati*0.5, "Wants": ati*0.3, "Savings": ati*0.2 }
+}
+console.log(fiftyThirtyTwenty(10000))
+console.log(typeof obj)
+
+////////////////////////////////////////////////////////////////////////////////////
+// Minimal II: Boolean Redundancy
+const parity=n=>!(n % 2)?'even':'odd'
+console.log(parity(3))
+//= n => !(n % 2)
+
+////////////////////////////////////////////////////////////////////////////////////
+// Minimal IX: This or That
+function firstOne(a, b = 0 c = 0, d = 0) {
+	if (a)
+		return a;
+	else if (b)
+		return b;
+  else if (c)
+		return c;
+  else if (d)
+		return d;
+	else
+		return "not found";
+}
+const firstOne=(a,b,c,d)=>{
+	a||b||c||d?a||b||c||d:'not found'
+}
+// const firstOne = (a,b,c,d) => a||b||c||d||"not found";
+console.log(firstOne(1,2,3,4))
