@@ -1391,7 +1391,7 @@ console.log(parity(3))
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Minimal IX: This or That
-function firstOne(a, b = 0 c = 0, d = 0) {
+function firstOne(a, b = 0, c = 0, d = 0) {
 	if (a)
 		return a;
 	else if (b)
@@ -1403,8 +1403,88 @@ function firstOne(a, b = 0 c = 0, d = 0) {
 	else
 		return "not found";
 }
-const firstOne=(a,b,c,d)=>{
-	a||b||c||d?a||b||c||d:'not found'
+// const firstOne2=(a, b = 0, c = 0, d = 0)=>{
+// 	a ? a : b ? b : c ? c : d ? d : 'not found'
+// }
+// const firstOne2 = (...args) => args.filter(ele => ele)[0] || "not found"
+const firstOne2 = (a,b,c,d) => a||b||c||d||"not found";
+console.log(firstOne2(0,3,0,0))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Number of Stickers
+// Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube.
+// Pictures of Rubik's Cubes
+// The Rubik's cube of side length 1 has 6 stickers.
+// The Rubik's cube of side length 2 has 24 stickers.
+// The Rubik's cube of side length 3 has 54 stickers.
+// Examples
+// howManyStickers(1) ➞ 6
+// howManyStickers(2) ➞ 24
+// howManyStickers(3) ➞ 54
+// Notes
+// Keep in mind there are 6 faces to keep track of.
+// Expect only positive whole numbers.
+// 2*2*6 3*3*6 4*4*3 
+function howManyStickers(n) {
+	return n*n*6
+	//return Math.pow(n,2)*6
 }
-// const firstOne = (a,b,c,d) => a||b||c||d||"not found";
-console.log(firstOne(1,2,3,4))
+console.log(howManyStickers(3))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Burglary Series (19): Prevent Changes
+// The police send you an electronic statement for you to sign. As you begin to sign, an error pops up. Apparently, they sent you a protected document.
+// This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't do a return statement, it is already included. Your task is, given an object, prevent changes to that object.
+// Examples
+// const obj = { noChanges: true }
+// preventChanges(obj) {
+//   // Write your code here, don't use a return statement
+//   obj.noChanges = false;
+//   obj.signature = "whatever"
+//   return obj;
+// }  ➞ { noChanges: true }
+let obj2={}
+function preventChanges(obj2) {
+	// write your code here
+	  // don't use a return statement
+	//obj2.noChanges = true;
+	Object.freeze(obj2);
+	  
+	// DON'T CHANGE OR REMOVE THE LINES BELOW
+	// obj2.noChanges = false;
+	// obj2.signature = "whatever";
+	return obj2;
+  }
+  console.log(preventChanges(obj2))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Four Passengers and a Driver
+// A typical car can hold four passengers and one driver, allowing five people to travel around. Given n number of people,
+// return how many cars are needed to seat everyone comfortably.
+// Examples
+// carsNeeded(5) ➞ 1
+// carsNeeded(11) ➞ 3
+// carsNeeded(0) ➞ 0
+// Notes
+// It's likely there will be a few people left over and some cars won't be filled to max capacity.
+function carsNeeded(n) {
+	return Math.ceil(n/5)
+}
+console.log(carsNeeded(0))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Check String for Spaces
+// Create a function that returns true if a string contains any spaces.
+// Examples
+// hasSpaces("hello") ➞ false
+// hasSpaces("hello, world") ➞ true
+// hasSpaces(" ") ➞ true
+// hasSpaces("") ➞ false
+// hasSpaces(",./!@#") ➞ false
+// Notes
+// An empty string does not contain any spaces.
+// Try doing this without RegEx.
+function hasSpaces(str) {
+	return str.includes(' ')
+}
+console.log(hasSpaces("hello, world"))
