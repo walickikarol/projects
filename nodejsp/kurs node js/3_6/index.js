@@ -2,6 +2,9 @@ const express = require('express')
 // import chalk from 'chalk'
 const app = express()
 const port =3000
+const path = require('path')
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname + '/views'))
 const users=[
     {id:1, name:'Janek', email:'janek@gmail.com'},
     {id:2, name:'adam', email:'adam@gmail.com'},
@@ -9,15 +12,19 @@ const users=[
     {id:4, name:'dawid', email:'dawid@gmail.com'},
 ]
 app.get('/',(req,res)=>{
-    debugger
+    res.render('home',{
+        title: 'Strona główna'
+    })
+    //debugger
     // console.log(chalk.blue(req.params.name));
     const m=process.memoryUsage()
     console.log(m.rss/1024/1024)
 
-    res.send(`Strona Głównaaaaa
-    <p>Przejdź do <a href="/kontakt">kontakt</a></p>
-    <p>Przejdź do <a href="/profile">profile</a></p>`
-    )
+    // res.send(`Strona Głównaaaaa
+    // <p>Przejdź do <a href="/kontakt">kontakt</a></p>
+    // <p>Przejdź do <a href="/profile">profile</a></p>`
+    // )
+    res.render('home')
 })
 app.get('/kontakt',(req,res)=>{
     res.send(`kontakt
@@ -25,6 +32,22 @@ app.get('/kontakt',(req,res)=>{
     <p>Przejdź do <a href="/profile">profile</a></p>`
     )
 })
+app.get('/firmy/:name', (req,res)=>{
+    const{name}=req.params
+    const companies = [
+        {slug: 'tworcastron', name: 'Tworca stron.pl'},
+        {slug: 'brukmode', name: 'Bruk Mode'},
+    ]
+    const company = companies.find(x=>x.slug === name)
+   
+        res.render('company', {
+            name: company?.name,
+            companies,
+            title: company?.name ?? 'Brak wyników'
+        })
+   
+})
+
 app.get('/profile',(req,res)=>{
     let html = `Znaleziono ${users.length} profile<br>`
     users.forEach(user=>html+=
@@ -48,6 +71,9 @@ app.get('/profile/:id/:mode?',(req,res)=>{
     }
     res.send(html)
     
+})
+app.get('*', (req,res)=>{
+    res.render('errors/404')
 })
 app.listen(port)
 

@@ -1488,3 +1488,378 @@ function hasSpaces(str) {
 	return str.includes(' ')
 }
 console.log(hasSpaces("hello, world"))
+////////////////////////////////////////////////////////////////////////////////////
+// Kinetic Energy
+// Kinetic energy can be calculated with the following formula:
+// KE = 1/2mv²
+// m is mass in kg
+// v is velocity in m/s
+// KE is kinetic energy in J
+// Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
+// Examples
+// kineticEnergy(60, 3) ➞ 270
+// kineticEnergy(45, 10) ➞ 2250
+// kineticEnergy(63.5, 7.35) ➞ 1715
+
+function kineticEnergy(m, v) {
+	return Math.round(0.5*m*v*v)
+}
+console.log(kineticEnergy(63.5, 7.35));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Volume of a Box
+// Create a function that takes an object argument sizes (contains width, length, height keys) and returns the volume of the box.
+// Examples
+// volumeOfBox({ width: 2, length: 5, height: 1 }) ➞ 10
+// volumeOfBox({ width: 4, length: 2, height: 2 }) ➞ 16
+// volumeOfBox({ width: 2, length: 3, height: 5 }) ➞ 30
+// Notes
+// Don't forget to return the result.
+// Remember that the values are in an object.
+// Volume is length * width * height.
+function volumeOfBox(sizes) {
+	// return sizes.width*sizes.length*sizes.height
+	let {width, length, height} = sizes;
+    return width * length * height;
+}
+console.log(volumeOfBox({ width: 4, length: 2, height: 2 }))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Recreating the abs() Function
+// The Math.abs() function returns the absolute value of a number. This means that it returns a number's positive value. You can think of it as the distance away from zero.
+// Create a function that recreates this functionality.
+// Examples
+// absolute(-1.217197940) ➞ 1.21719794
+// absolute(-12.1320) ➞ 12.132
+// absolute(-544.0) ➞ 544
+// absolute(4666) ➞ 4666
+// absolute(-3.14) ➞ 3.14
+// absolute(250) ➞ 250
+function absolute(n) {
+return n>0?n:-n	
+//return num * Math.sign(num);
+//return Math.sqrt(num * num);
+//return num & ~(1 << 31);
+//return( n**2)**0.5
+//Math.max(n, -n);
+}
+console.log(absolute(-1.217197940))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Array of Strings to Array of Numbers
+// Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
+// Example:
+// ["1", "3", "3.6"] ➞ [1, 3, 3.6]
+// Examples
+// toNumberArray(["9.4", "4.2"]) ➞ [9.4, 4.2]
+// toNumberArray(["91", "44"]) ➞ [91, 44]
+// toNumberArray(["9.5", "8.8"]) ➞ [9.5, 8.8]
+// Notes
+// Some inputs are floats.
+function toNumberArray(arr) {
+	return arr.map(x=>parseFloat(x))
+	//return arr.map(Number)
+}
+console.log(toNumberArray(["9.5", "8.8"]));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Is the Last Character an "N"?
+// Create a function that takes a string (a random name). If the last character of the name is an "n", return true, otherwise return false.
+// Examples
+// isLastCharacterN("Aiden") ➞ true
+// isLastCharacterN("Piet") ➞ false
+// isLastCharacterN("Bert") ➞ false
+// isLastCharacterN("Dean") ➞ true
+// Notes
+// The function must return a boolean value ( i.e. true or false).
+function isLastCharacterN(word) {
+	return word[word.length-1]=="n"
+	//return word.endsWith('n')
+	//return [...word].pop() == "n"
+	//return /n$/.test(word);
+	//return word.substr(-1) == "n";
+}
+console.log(isLastCharacterN("Dean"));
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// Minimal VI: Ternary Operator
+// In the Code tab you will find code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
+// Write a function that returns the strings:
+// "both" if both given booleans a and b are true.
+// "first" if only a is true.
+// "second" if only b is true .
+// "neither" if both a and b are false.
+// function areTrue(a, b) {
+// 	if (a == true) {
+// 		if (b == true) {
+// 			return "both";
+// 		}
+// 		else {
+// 			return "first";
+// 		}
+// 	}
+// 	else if (b = true) {
+// 		return "second";
+// 	}
+// 	else {
+// 		return "neither";
+// 	}
+// }
+function areTrue(a, b) {
+	return a?b?'both':'first':b?'second':'neither'
+	//["neither", "first", "second", "both"][a + b * 2];
+	//['neither', 'first', 'second', 'both'][2 * b + a]
+}
+console.log(areTrue(false, false));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Repeat String
+// Create a function that takes a string txt and a number n and returns the repeated string n number of times.
+// If given argument txt is not a string, return Not A String !!
+// Examples
+// repeatString("Mubashir", 2) ➞ "MubashirMubashir"
+// repeatString("Matt", 3) ➞ "MattMattMatt"
+// repeatString(1990, 7) ➞ "Not A String !!"
+function repeatString(txt, n) {
+	return typeof txt=='string'?txt.repeat(n):'Not A String!!'
+	//t === String(t) ? t.repeat(n) : `Not A String !!`
+	//return Array(n).fill(txt).join('');
+}
+console.log(repeatString(1990, 7));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Less Than, Greater Than
+// Create a function that takes two numbers num1, num2, and an array arr and returns an array containing all the numbers 
+// in arr greater than num1 and less than num2.
+// Examples
+// arrBetween(3, 8, [1, 5, 95, 0, 4, 7]) ➞ [5, 4, 7]
+// arrBetween(1, 10, [1, 10, 25, 8, 11, 6]) ➞ [8, 6]
+// arrBetween(7, 32, [1, 2, 3, 78]) ➞ []
+function arrBetween(num1, num2, arr) { 
+	let array = [];
+	  arr.forEach(function(el){
+		  if(el>num1 && el<num2){
+			  array.push(el);
+		  }
+	  });
+	  return array;
+	  //return arr.filter(n=> n > num1 && n < num2);
+  }
+
+  function arrBetween2(num1, num2, arr) {
+	let array=[]
+	arr.forEach(el=>el>num1&&el<num2&&array.push(el))
+	return array
+  }
+  console.log(arrBetween2(3, 8, [1, 5, 95, 0, 4, 7]));
+
+////////////////////////////////////////////////////////////////////////////////////
+//   Count the Arguments
+// Create a function that returns the number of arguments it was called with.
+// Examples
+// numArgs() ➞ 0
+// numArgs("foo") ➞ 1
+// numArgs("foo", "bar") ➞ 2
+// numArgs(true, false) ➞ 2
+// numArgs({}) ➞ 1
+function numArgs() {
+	return arguments.length
+}
+console.log(numArgs("foo", "bar"));
+
+
+// Find the Bug: Returning the Container
+// zrobiłem tam
+function getContainer(product){ 
+	let inventory = {
+    Bread : "bag",
+	Beer : "bottle",
+	Milk : "bottle",   
+  	Cerials : "box",
+	Eggs : "carton",
+    Candy : "plastic",
+	}
+  	return (inventory[product] ? inventory[product] : 'brak opakowania');
+}
+console.log(getContainer('maka'));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Similar Bread
+// Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always 
+// be found at the start and end of the array.
+// Examples
+// hasSameBread(
+//   ["white bread", "lettuce", "white bread"],
+//   ["white bread", "tomato", "white bread"]
+// ) ➞ true
+// hasSameBread(
+//   ["brown bread", "chicken", "brown bread"],
+//   ["white bread", "chicken", "white bread"]
+// ) ➞ false
+// hasSameBread(
+//   ["toast", "cheese", "toast"],
+//   ["brown bread", "cheese", "toast"]
+// ) ➞ false
+// Notes
+// The arrays will always be three elements long.
+// The first piece of bread on one sandwich must be the same as the first piece of bread on the other sandwich. 
+// The same goes for the last piece of bread.
+function hasSameBread(arr1, arr2) {
+	let fl1=[arr1[0],arr1[arr1.length-1]]
+	let fl2=[arr2[0],arr2[arr2.length-1]]
+	return fl1[0]==fl2[0]&&fl1[1]==fl2[1]
+}
+console.log(hasSameBread(
+	  ["white bread", "lettuce", "white bread"],
+	  ["white bread", "tomato", "white bread"]
+	))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Nth Star Number
+// Create a function that takes a positive integer n and returns the nth "star number".
+// A star number is a centered figurate number that represents a centered hexagram (six-pointed star), such as the one that Chinese checkers is played on.
+// star numbers for 1, 2 and 3
+// Examples
+// starNumber(2) ➞ 13
+// // n = 2
+// // 2nd star number = 13
+// starNumber(3) ➞ 37
+// // n = 3
+// // 3rd star number = 37
+// starNumber(5) ➞ 121
+// // n = 5
+// // 5th star number = 121
+// Notes
+// n will always be a positive integer.
+// The nth term of a star number can be represented as 6n(n-1) + 1
+// See Resources for more information.
+function starNumber(n) {
+	return 6*n*(n-1)+1
+}
+console.log(starNumber(5))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Return the Total Number of Parameters
+// Create a function that returns the total number of parameters passed in.
+// Examples
+// numberArgs("a", "b", "c") ➞ 3
+// numberArgs(10, 20, 30, 40, 50) ➞ 5
+// numberArgs(x, y) ➞ 2
+// numberArgs() ➞ 0
+function numberArgs(/* fill-in */) {
+	return arguments.length
+}
+console.log(numberArgs())
+
+////////////////////////////////////////////////////////////////////////////////////
+// Luke, I Am Your ...
+// Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+// Person	Relation
+// Darth Vader	father
+// Leia	sister
+// Han	brother in law
+// R2D2	droid
+// Examples
+// relationToLuke("Darth Vader") ➞ "Luke, I am your father."
+// relationToLuke("Leia") ➞ "Luke, I am your sister."
+// relationToLuke("Han") ➞ "Luke, I am your brother in law."
+function relationToLuke(name) {
+let luke='Luke, I am your '
+if (name==="Darth Vader") { return `${luke}father`
+} else if (name==="Leia") { return `${luke}sister`
+} else if (name==="Han") { return `${luke}brother in law`
+} else if (name==="R2D2") { return `${luke}droid`}
+}
+// const rels = {
+// 	"Darth Vader": "father",
+// 	"Leia": "sister",
+// 	"Han": "brother in law",
+// 	"R2D2": "droid"
+// }
+// return `Luke I am your ${rels[name]}.`
+
+// const fam = `father,sister,brother in law,droid`.split`,`;
+
+// const relationToLuke = s =>
+//  `Luke, I am your ${fam[`DLHR`.indexOf(s[0])]}.`;
+// `Luke, I am your ${['father', 'sister', 'brother in law', 'droid']['DLHR'.indexOf(n[0])]}.`
+console.log(relationToLuke("R2D2"));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Extract City Facts
+// Create a function that takes an object as an argument and returns a string with facts about the city. The city facts will need 
+// to be extracted from the object's three properties:
+// name
+// population
+// continent
+// The string should have the following format: X has a population of Y and is situated in Z (where X is the city name, Y is 
+// the population and Z is the continent the city is situated in).
+// Examples
+// cityFacts({
+//   name: "Paris",
+//   population: "2,140,526",
+//   continent: "Europe"
+// }) ➞ "Paris has a population of 2,140,526 and is situated in Europe"
+// cityFacts({
+//   name: "Tokyo",
+//   population: "13,929,286",
+//   continent: "Asia"
+// }) ➞ "Tokyo has a population of 13,929,286 and is situated in Asia"
+// Notes
+// Don't add a period at the end.
+
+function cityFacts(city) {
+	// return `${city.name} has a population of ${city.population} and is situated in ${city.continent}`;
+	return `${city.name} has a population of ${city.population} and is situated in ${city.continent}`
+}
+console.log(cityFacts({
+	  name: "Paris",
+	  population: "2,140,526",
+	  continent: "Europe"
+	}))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Is the Word Singular or Plural?
+// Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
+// Examples
+// isPlural("changes") ➞ true
+// isPlural("change") ➞ false
+// isPlural("dudes") ➞ true
+// isPlural("magic") ➞ false
+// Notes
+// Don't forget to return the result.
+// Remember that return true (boolean) is not the same as return "true" (string).
+// This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.
+function isPlural(word) {
+return word.slice(-1)=="s"	
+// return word.endsWith("s");
+}
+console.log(isPlural("change"));
+
+////////////////////////////////////////////////////////////////////////////////////
+// Concatenating First and Last Character of a String
+// Create a function that takes a string and returns the concatenated first and last character.
+// Examples
+// firstLast("ganesh") ➞ "gh"
+// firstLast("kali") ➞ "ki"
+// firstLast("shiva") ➞ "sa"
+// firstLast("vishnu") ➞ "vu"
+// firstLast("durga") ➞ "da"
+function firstLast(name) {
+	return `${name.slice(0,1)}${name.slice(-1)}`
+}
+console.log(firstLast("ganesh"))
+
+////////////////////////////////////////////////////////////////////////////////////
+// Amazing Edabit!
+// Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if 
+// the word edabit is part of the string.
+// Examples
+// amazingEdabit("edabit is amazing.") ➞ "edabit is amazing."
+// amazingEdabit("Mubashir is amazing.") ➞ "Mubashir is not amazing."
+// amazingEdabit("Infinity is amazing.") ➞ "Infinity is not amazing."
+function amazingEdabit(s) {
+	return !s.includes('edabit') ? s.replace(/amazing/,'not amazing') : s;
+}
+console.log(amazingEdabit("Mubashir is amazing."));
